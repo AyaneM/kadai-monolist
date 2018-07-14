@@ -1,0 +1,44 @@
+<% if items.present? %>
+<!--items　ここではローカル変数として使う。このパーシャルファイルを呼び出している(toppages/index..)render部分の記述が重要-->
+ <!-- render 'パーシャル', パーシャルで使う変数名: 代入する値-->
+ 
+ <div class="row">
+    
+  <% items.each do |item| %>
+
+      <div class="item">
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <div class="panel panel-default">
+           
+            <div class="panel-heading text-center">
+              <img src=" <%= item.image_url %>" alt="" >
+            </div>
+            
+            <div class="panel-body">
+              
+              <% if item.persisted? %>
+                <p class="item-title"><%= link_to item.name, item %></p>
+              <% else %>
+                <p class="item-title"><%= item.name %></p>
+              <% end %>
+              
+              <div class="buttons text-center">
+                <% if logged_in? %>  
+                  
+                    <span class="want_button"><%= render 'ownerships/want_button', item: item %></span>
+                  <!--Itemモデルのインスタンス１要素だけ取り扱いたい。wantボタンを表示させたいのは、ある１つのItem情報に対して-->
+                    <span class="have_button"><%= render 'ownerships/have_button', item: item %></span>
+                  
+                <% end %>
+              </div>
+             
+             </div>
+          
+          </div>
+        </div>
+      </div>
+    
+  <% end %>
+
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+<% if current_user.want?(item) %>
+  
+  <%= form_tag(ownership_path(item.id), method: :delete) do %> <!--rails routes によれば、delete-->
+    <%= hidden_field_tag :item_id, item.id %>
+    <%= hidden_field_tag :type, 'Want' %>
+<!--一緒にできない？-->
+    <%= submit_tag 'Want', class: 'btn btn-success' %>
+  <% end %>
+  
+<% else %>
+
+  <%= form_tag(ownerships_path) do %> <!--create -->
+    <%= hidden_field_tag :item_code, item.code %> <!--item保存したらid与えられる？ -->
+    <%= hidden_field_tag :type, 'Want' %>
+    <%= submit_tag 'Want it', class: 'btn btn-primary' %>
+  <% end %>
+  
+<% end %>
+
+ 

@@ -1,0 +1,21 @@
+<% content_for :cover do %>
+
+  <div class="cover">
+    <div class="cover-inner">
+      <div class="cover-contents">
+        <h1>素敵なモノと出会う場所</h1>
+        
+        <% unless logged_in? %>
+          <%= link_to 'モノリストを始める', signup_path, class: 'btn btn-success btn-lg' %>
+        <% end %>
+      
+      </div>
+    </div>
+  </div>
+<% end %>
+<!--ここまでlayouts/application.html.erbの yield :cover に埋め込まれる。 -->
+
+<!--ここから yield に埋め込まれる-->
+<p><%= render 'items/items', items: @items %></p>
+<!--Itemモデルの複数インスタンスが格納された配列データを取り扱いたい。@items from toppages_controller-->
+<!--item image name wantボタン-->
