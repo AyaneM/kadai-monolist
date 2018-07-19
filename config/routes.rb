@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
  root to: "toppages#index"
  
+  get 'rankings/have', to: 'rankings#have'
   get 'rankings/want', to: 'rankings#want'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

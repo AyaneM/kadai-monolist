@@ -1,4 +1,4 @@
-<h1>Wantランキング</h1>
+<h1>Haveランキング</h1>
 <% if @items.present? %>
 
   <div class="row">
@@ -22,7 +22,7 @@
 <% if logged_in? %>
 
                   
-<%= render 'ownerships/want_button', item: item %>
+<%= render 'ownerships/have_button', item: item %>
 
                 
 <% end %>
@@ -34,7 +34,7 @@
 <%= index+1 %>
 位: 
 <%= @ranking_counts[item.id] %>
- Wants</p>
+ Haves</p>
             </div>
           </div>
         </div>
