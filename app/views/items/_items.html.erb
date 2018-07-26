@@ -26,7 +26,7 @@
                 <% if logged_in? %>  
                   
                     <span class="want_button"><%= render 'ownerships/want_button', item: item %></span>
-                  <!--Itemモデルのインスタンス１要素だけ取り扱いたい。wantボタンを表示させたいのは、ある１つのItem情報に対して-->
+                  <!--itemモデルのインスタンス１要素だけ取り扱いたい。wantボタンを表示させたいのは、ある１つのitem情報に対して-->
                     <span class="have_button"><%= render 'ownerships/have_button', item: item %></span>
                   
                 <% end %>
