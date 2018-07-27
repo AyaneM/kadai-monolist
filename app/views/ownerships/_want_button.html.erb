@@ -3,7 +3,7 @@
   <%= form_tag(ownership_path(item.id), method: :delete) do %> <!--rails routes によれば、delete-->
     <%= hidden_field_tag :item_id, item.id %>
     <%= hidden_field_tag :type, 'Want' %>
-<!--一緒にできない？-->
+<!--一緒にできない-->
     <%= submit_tag 'Want', class: 'btn btn-success' %>
   <% end %>
   

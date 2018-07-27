@@ -6,9 +6,9 @@ class OwnershipsController < ApplicationController
     
     unless @item.persisted?
     # @item が保存されていない場合、先に @item を保存する
-      results = RakutenWebService::Ichiba::item.search(itemCode: @item.code)
+      results = RakutenWebService::Ichiba::Item.search(itemCode: @item.code)
       @item = Item.new(read(results.first))
-      @item.save
+      @item.save!
     end
     
     if params[:type] == 'Want'
